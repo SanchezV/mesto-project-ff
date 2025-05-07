@@ -1,3 +1,4 @@
+/* я не Иван) */
 export {openPopup, closePopup};
 
 // Функция для открытия попапа
@@ -16,7 +17,7 @@ function closePopup(popup) {
 // Функция для закрытия попапа по нажатию "Esc"
 function handleEscClose(event) {
     if (event.key === 'Escape') {
-        const openPopup = document.querySelector('.popup[style*="display: flex"]'); // Находим открытый попап
+        const openPopup = document.querySelector('.popup_is-opened'); // Находим открытый попап
         if (openPopup) {
             closePopup(openPopup);
         }
