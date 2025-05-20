@@ -1,4 +1,3 @@
-/* я не Иван) */
 export {openPopup, closePopup};
 
 // Функция для открытия попапа

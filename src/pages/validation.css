@@ -1,0 +1,19 @@
+.popup__input {
+    outline: none;
+}
+
+.popup__error_visible {
+    border-bottom: 1px solid red;
+}
+
+.form__input-error {
+    color: red;
+    font-size: 12px;
+}
+
+.popup__button_disabled {
+    background: none;
+    border: 1px solid #000;
+    color: #000;
+    pointer-events: none;
+}
