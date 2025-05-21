@@ -1,13 +1,4 @@
-export {enableValidation, clearValidation, validationConfig};
-
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-}
+export {enableValidation, clearValidation};
 
 function showInputError (validationConfig, formElement, inputElement, errorMessage) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -71,9 +62,10 @@ function toggleButtonState(validationConfig, inputList, buttonElement) {
   }
 }; 
 
-function clearValidation(profileForm, validationConfig) {
-    const inputList = Array.from(profileForm.querySelectorAll(validationConfig.inputSelector));
+function clearValidation(form, validationConfig, buttonElement) {
+    const inputList = Array.from(form.querySelectorAll(validationConfig.inputSelector));
     inputList.forEach((inputElement) => {
-    hideInputError(validationConfig, profileForm, inputElement);
+    hideInputError(validationConfig, form, inputElement);
+    buttonElement.disabled = true;
   })
 }
