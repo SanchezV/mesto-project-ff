@@ -52,10 +52,14 @@ function hasInvalidInput(inputList) {
   })
 }; 
 
+const disableSubmitButton = (button, validationConfig) => {
+  button.disabled = true;
+  button.classList.add(validationConfig.inactiveButtonClass);
+};
+
 function toggleButtonState(validationConfig, inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add(validationConfig.inactiveButtonClass);
+    disableSubmitButton( buttonElement, validationConfig);
   } else {
     buttonElement.disabled = false;
     buttonElement.classList.remove(validationConfig.inactiveButtonClass);
@@ -66,6 +70,6 @@ function clearValidation(form, validationConfig, buttonElement) {
     const inputList = Array.from(form.querySelectorAll(validationConfig.inputSelector));
     inputList.forEach((inputElement) => {
     hideInputError(validationConfig, form, inputElement);
-    buttonElement.disabled = true;
-  })
+  });
+  disableSubmitButton( buttonElement, validationConfig);
 }
